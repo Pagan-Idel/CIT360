@@ -5,18 +5,23 @@
  */
 package sandbox;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Idel
  */
 public class Sandbox {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ArrayList songs = new ArrayList();
+        String songName1 = "Dum Dee Dum";
+        String songName2 = "Closer";
+        String songName3 = "Dreamness";
+        
+        songs.add(songName1);
+        System.out.println(songs);
         // TODO code application logic here
     }
-    
+
 }
