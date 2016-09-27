@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Idel
  */
-public class Sandbox {
+public class Map {
 
     public static void main(String[] args) {
         ArrayList songs = new ArrayList();
