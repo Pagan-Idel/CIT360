@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.*;
 
 //Sandbox code for threads, creation of thread class
 
@@ -13,6 +14,7 @@ public class threads1 implements Runnable {
 		time = r.nextInt(999);
 	}
 	
+	//Happy Path
 	//Runnable run method to create thread.
 	public void run(){
 		try{
@@ -23,6 +25,8 @@ public class threads1 implements Runnable {
 			System.out.println(Thread.currentThread().getName());
 			System.out.println(Thread.currentThread().toString());
 			System.out.println(Thread.currentThread().isInterrupted());
+			//Nasty path - negative value for sleep, executes on all thread calls
+			Thread.sleep(-100);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -31,13 +35,35 @@ public class threads1 implements Runnable {
 	
 	//Main thread creation
 	public static void main(String[] args){
-		Thread t1 = new Thread(new threads1("first"));
-		Thread t2 = new Thread(new threads1("second"));
-		Thread t3 = new Thread(new threads1("third"));
+		//Individual thread creation
+		Thread t1 = new Thread(new threads1("first thread"));
+		Thread t2 = new Thread(new threads1("second thread"));
+		Thread t3 = new Thread(new threads1("third thread"));
+		Thread t4 = new Thread(new threads1("executor thread"));
+		Thread t5 = new Thread(new threads1("second executor thread"));
 		
+		//Happy Path
+		//Executor creation and run/submit action
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		
+		//First executor example
+		executor.submit(() -> {
+			String threadName = Thread.currentThread().getName();
+			System.out.println("\nThread name is " + threadName);
+		});
+		
+		executor.submit(t5);
+		
+		//First executor example
+		threadtask executortest = new threadtask();
+		executortest.execute(t4);
+
 	//Run Threads
 		t1.start();
 		t2.start();
+		t3.start();
+		
+	//Nasty Path - Failed thread, already started
 		t3.start();
 	}
 }
