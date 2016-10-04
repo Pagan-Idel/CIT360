@@ -81,6 +81,8 @@ public class List {
 
 //        System.out.println(list.get(4));
 //        System.out.println(list.remove(4));
+//        System.out.println(list.add("\n"));
+//        System.out.println(list);
         
     }
 }
