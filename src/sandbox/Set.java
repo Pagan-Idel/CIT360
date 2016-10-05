@@ -49,6 +49,7 @@ public class Set {
         System.out.println(set.add(null));
         System.out.println(set.add(null));
         System.out.println(set.remove(2));
+        System.out.println(set.contains(null));
         System.out.println(set);
 
         HashSet set2 = new HashSet(5, 1); //capacity of set(5) with fill ratio of 100%; 

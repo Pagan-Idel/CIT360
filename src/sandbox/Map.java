@@ -42,12 +42,15 @@ public class Map {
         System.out.println(songs);
 
         //Nasty Paths
-        System.out.println(songs.get(10));
-        System.out.println(songs.remove("Bob"));
-        songs.put(3, songName4);
-        songs.put(4, songName5);
-        songs.put(null, "Bob");
+        System.out.println("---------------------------");
+
+//        System.out.println(songs.get(10));
+//        System.out.println(songs.remove("Bob"));
+//        songs.put(3, songName4);
+//        songs.put(4, songName5);
+//        songs.put(null, "Bob");
 //        songs.put(100/0, "Hello");
+//        songs.put(5, "");
         System.out.println(songs);
         
 

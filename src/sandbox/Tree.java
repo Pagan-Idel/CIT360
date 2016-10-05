@@ -36,22 +36,40 @@ public class Tree {
         while (iterator.hasNext()) {
             System.out.print(iterator.next() + " ");
         }
+        try {
+            System.out.println("\n" + treeSet.comparator());
+            System.out.println(treeSet.isEmpty());
+            System.out.println(treeSet.remove(6));
+            System.out.println(treeSet);
+            System.out.println(treeSet.first());
+            System.out.println(treeSet.last());
+            System.out.println(treeSet.pollFirst());
+            System.out.println(treeSet.pollLast());
+            System.out.println(treeSet.higher(5));
 
-        System.out.println("\n" + treeSet.comparator());
-        System.out.println(treeSet.isEmpty());
-        System.out.println(treeSet.remove(6));
-        System.out.println(treeSet);
-        System.out.println(treeSet.first());
-        System.out.println(treeSet.last());
-        System.out.println(treeSet.pollFirst());
-        System.out.println(treeSet.pollLast());
-        System.out.println(treeSet);
+            System.out.println(treeSet);
+        } catch (Exception e) {
+            System.out.println("This is broken!");
+
+        }
 //        System.out.println(treeSet.containsKey(1));
         //nasty path
-//    treeSet.add(5.5);
-//    System.out.println(treeSet.ceiling(5.5));
-//    Systemout.println(treeSet.ceiling(7));
-//        treeSet.clear();
+         System.out.println("----------------------------------------------------");
+//                    treeSet.add(5.5);
+//                    System.out.println(treeSet.ceiling(5.5));
+//                    System.out.println(treeSet.ceiling(7));
+//        treeSet.add(null);
+//        treeSet.add("NASTY");
+//        System.out.println(treeSet.higher(null));
+//          System.out.println(treeSet.higher(6));
+        TreeSet treeSet3 = new TreeSet();
+//        System.out.println(treeSet3.pollFirst());
+//        System.out.println(treeSet3.pollLast());
+         System.out.println(treeSet3.remove(2));
+        System.out.println(treeSet);
+
+        treeSet.clear();
+
     }
 
 }
