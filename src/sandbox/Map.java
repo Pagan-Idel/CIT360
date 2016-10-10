@@ -20,7 +20,7 @@ public class Map {
         String songName3 = "Dreamness";
         String songName4 = null;
         String songName5 = null;
-        
+
         songs.put(0, songName1);
         songs.put(1, songName2);
         songs.put(2, songName3);
@@ -43,17 +43,27 @@ public class Map {
 
         //Nasty Paths
         System.out.println("---------------------------");
-
-//        System.out.println(songs.get(10));
-//        System.out.println(songs.remove("Bob"));
-//        songs.put(3, songName4);
-//        songs.put(4, songName5);
-//        songs.put(null, "Bob");
-//        songs.put(100/0, "Hello");
-//        songs.put(5, "");
-        System.out.println(songs);
-        
+        try {
+            //out of scope interger
+            System.out.println(songs.get(10));
+            //remove "bob" element does not exist. 
+            System.out.println(songs.remove("Bob"));
+            //adding null elements to the entry
+            songs.put(3, songName4);
+            songs.put(4, songName5);
+            //element adding 
+            songs.put(null, "Bob");
+            songs.put(100 / 0, "Hello");
+            songs.put(5, "");
+            System.out.println(songs);
+        } catch (Exception e) {
+            //handle the exception 
+            e.printStackTrace(System.out);
+        }
 
     }
 
+    //trys and catches
+    //add cpomments of the results 
+    //e.printstacktrace
 }

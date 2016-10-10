@@ -27,7 +27,7 @@ public class List {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
-
+        
         System.out.println("this will return the element in the array where"
                 + " you specify the index location:");
 
@@ -61,13 +61,15 @@ public class List {
 
         System.out.println("\nReplacing the last element of the arraylist with barney using set method:");
 
-        //
+        //Happy Paths - just replaces the element to the specific location specify. 
+        //In this case it is replacing element in index two with the new "barney" element. 
         list.set(2, "Barney");
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
-
+        //Happy Path - isEmpty() checking to see if the arrayList has elements inside of it. 
+        //It will return a true or false. 
         System.out.println(list.isEmpty());
 
         list.add(1);
@@ -76,12 +78,15 @@ public class List {
         }
 
         System.out.println("Following are Nasty Paths:\n");
-        //Nasty paths
-        //        list.set(3, "Carly");
-
+        //Nasty paths - adding an element outside of the capacity of the arraylist.
+        //list.set(3, "Joe");
+// Nasty Path - trying to get an element which does not exist in the arrayList
 //        System.out.println(list.get(4));
+        //Nasty Path - trying to remove an element which does not exist in the arrayList.
 //        System.out.println(list.remove(4));
+          //Nast Path - adding a new line to the arrayList. 
 //        System.out.println(list.add("\n"));
+        //simply printing the arrylist. 
 //        System.out.println(list);
         
     }
