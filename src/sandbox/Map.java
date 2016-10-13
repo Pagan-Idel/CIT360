@@ -5,7 +5,7 @@
  */
 package sandbox;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -14,14 +14,56 @@ import java.util.ArrayList;
 public class Map {
 
     public static void main(String[] args) {
-        ArrayList songs = new ArrayList();
+        HashMap songs = new HashMap();
         String songName1 = "Dum Dee Dum";
         String songName2 = "Closer";
         String songName3 = "Dreamness";
-        
-        songs.add(songName1);
+        String songName4 = null;
+        String songName5 = null;
+
+        songs.put(0, songName1);
+        songs.put(1, songName2);
+        songs.put(2, songName3);
         System.out.println(songs);
-        // TODO code application logic here
+
+        System.out.println(songs.size());
+
+        System.out.println(songs.get(0));
+        // TODO code application logic 
+        System.out.println(songs.containsKey(1));
+        System.out.println(songs.containsValue("Closer"));
+        System.out.println(songs.isEmpty());
+        System.out.println(songs.remove(0));
+        songs.put(-1, "Hot Dog");
+        System.out.println(songs);
+
+        System.out.println(songs.get(-2));
+//        songs.clear();
+        System.out.println(songs);
+
+        //Nasty Paths
+        System.out.println("---------------------------");
+        try {
+            //out of scope interger
+            System.out.println(songs.get(10));
+            //remove "bob" element does not exist. 
+            System.out.println(songs.remove("Bob"));
+            //adding null elements to the entry
+            songs.put(3, songName4);
+            songs.put(4, songName5);
+            //element adding 
+            songs.put(null, "Bob");
+            songs.put(100 / 0, "Hello");
+            songs.put(5, "");
+            System.out.println(songs);
+        } catch (Exception e) {
+            //handle the exception 
+            e.printStackTrace(System.out);
+        }
+
     }
 
+    //trys and catches
+    //add cpomments of the results 
+    //e.printstacktrace
 }
