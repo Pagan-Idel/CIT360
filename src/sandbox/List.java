@@ -27,7 +27,7 @@ public class List {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
-        
+
         System.out.println("this will return the element in the array where"
                 + " you specify the index location:");
 
@@ -76,18 +76,22 @@ public class List {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
+        try {
+            System.out.println("Following are Nasty Paths:\n");
+            //Nasty paths - adding an element outside of the capacity of the arraylist.
+            list.set(3, "Joe");
+            // Nasty Path - trying to get an element which does not exist in the arrayList
+            System.out.println(list.get(4));
+            //  Nasty Path - trying to remove an element which does not exist in the arrayList.
+            System.out.println(list.remove(4));
+            //  Nast Path - adding a new line to the arrayList. 
+            System.out.println(list.add("\n"));
+            // simply printing the arrylist. 
+            System.out.println(list);
+        } catch (Exception e) {
+            //handle the exception 
+            e.printStackTrace(System.out);
+        }
 
-        System.out.println("Following are Nasty Paths:\n");
-        //Nasty paths - adding an element outside of the capacity of the arraylist.
-        //list.set(3, "Joe");
-// Nasty Path - trying to get an element which does not exist in the arrayList
-//        System.out.println(list.get(4));
-        //Nasty Path - trying to remove an element which does not exist in the arrayList.
-//        System.out.println(list.remove(4));
-          //Nast Path - adding a new line to the arrayList. 
-//        System.out.println(list.add("\n"));
-        //simply printing the arrylist. 
-//        System.out.println(list);
-        
     }
 }

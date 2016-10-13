@@ -97,34 +97,38 @@ public class Set {
         System.out.print(symDiff);
         //Nasty paths
         System.out.println("\n-----------------------");
-
-        //Nasty Path - adding a set to itself
-        set.add(set);
+        try {
+            //Nasty Path - adding a set to itself
+            set.add(set);
         //Nasty Path - adding duplicate to the set, the add method returns false when 
-        //a duplicate has been added.
-        System.out.println(set.add(1));
-        System.out.println(set.add(1));
-        //Nasty Path - adding a null to the set, then adding a duplicate of null to it.
-        System.out.println(set.add(null));
-        System.out.println(set.add(null));
-        //Nasty Path - removing an element that does not exist in the set.
-        System.out.println(set.remove(2));
-        //Nasty Path - looking for a null element in the set.
-        System.out.println(set.contains(null));
-        //Simply printing out the set. 
-        System.out.println(set);
-        //Creating a new set for nasty paths purposes. 
-        HashSet set2 = new HashSet(5, 1); //capacity of set(5) with fill ratio of 100%; 
-        //Nasty Paths - using the add method. 
-        set2.add("Apple");
-        set2.add("Mango");
-        set2.add("Banana");
-        set2.add(null); //inserting a null
-        set2.add(1); //inserting an integer
-        set2.add("Apple");
-        set2.add(10.10); //inserting a double. 
-        set2.add("\n"); //inserting a new line to the set. 
-        System.out.println(set2);
+            //a duplicate has been added.
+            System.out.println(set.add(1));
+            System.out.println(set.add(1));
+            //Nasty Path - adding a null to the set, then adding a duplicate of null to it.
+            System.out.println(set.add(null));
+            System.out.println(set.add(null));
+            //Nasty Path - removing an element that does not exist in the set.
+            System.out.println(set.remove(2));
+            //Nasty Path - looking for a null element in the set.
+            System.out.println(set.contains(null));
+            //Simply printing out the set. 
+            System.out.println(set);
+            //Creating a new set for nasty paths purposes. 
+            HashSet set2 = new HashSet(5, 1); //capacity of set(5) with fill ratio of 100%; 
+            //Nasty Paths - using the add method. 
+            set2.add("Apple");
+            set2.add("Mango");
+            set2.add("Banana");
+            set2.add(null); //inserting a null
+            set2.add(1); //inserting an integer
+            set2.add("Apple");
+            set2.add(10.10); //inserting a double. 
+            set2.add("\n"); //inserting a new line to the set. 
+            System.out.println(set2);
+        } catch (Exception e) {
+            //handle the exception 
+            e.printStackTrace(System.out);
+        }
 
     }
 }

@@ -43,10 +43,15 @@ public class Tree {
             System.out.print(iterator.next() + " ");
         }
         try {
+            //adding end of line
             System.out.println("\n" + treeSet.comparator());
+            //checkign if is empty
             System.out.println(treeSet.isEmpty());
+            //removing out of scope
             System.out.println(treeSet.remove(6));
+            //printing treeset
             System.out.println(treeSet);
+            //checking the first location of an empty treeset
             System.out.println(treeSet.first());
             System.out.println(treeSet.last());
             System.out.println(treeSet.pollFirst());
@@ -58,23 +63,36 @@ public class Tree {
             System.out.println("This is broken!");
 
         }
-//        System.out.println(treeSet.containsKey(1));
-        //nasty path
-         System.out.println("----------------------------------------------------");
-//                    treeSet.add(5.5);
-//                    System.out.println(treeSet.ceiling(5.5));
-//                    System.out.println(treeSet.ceiling(7));
-//        treeSet.add(null);
-//        treeSet.add("NASTY");
-//        System.out.println(treeSet.higher(null));
-//          System.out.println(treeSet.higher(6));
-        TreeSet treeSet3 = new TreeSet();
-//        System.out.println(treeSet3.pollFirst());
-//        System.out.println(treeSet3.pollLast());
-         System.out.println(treeSet3.remove(2));
-        System.out.println(treeSet);
 
-        treeSet.clear();
+        //nasty path
+        System.out.println("----------------------------------------------------");
+        try {
+            treeSet.add(5.5);
+            System.out.println(treeSet.ceiling(5.5));
+            System.out.println(treeSet.ceiling(7));
+            //adding null
+            treeSet.add(null);
+            //adding a string
+            treeSet.add("NASTY");
+            //what is higher than a null
+            System.out.println(treeSet.higher(null));
+            //what is higher than something that is not in the set
+            System.out.println(treeSet.higher(6));
+            //new treeset
+            TreeSet treeSet3 = new TreeSet();
+            //first of empty treeset
+            System.out.println(treeSet3.pollFirst());
+            //last of an empty treeset
+            System.out.println(treeSet3.pollLast());
+            //remove something thats not there
+            System.out.println(treeSet3.remove(2));
+            System.out.println(treeSet);
+
+            treeSet.clear();
+        } catch (Exception e) {
+            //handle the exception 
+            e.printStackTrace(System.out);
+        }
 
     }
 
