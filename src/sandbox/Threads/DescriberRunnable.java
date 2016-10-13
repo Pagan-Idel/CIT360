@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.concurrent.*;
 
 //Sandbox code for threads, creation of thread class
 
@@ -26,7 +25,8 @@ public class DescriberRunnable implements Runnable {
 			System.out.println(Thread.currentThread().toString());
 			System.out.println(Thread.currentThread().isInterrupted());
 			//Nasty path - negative value for sleep, executes on all thread calls
-			Thread.sleep(-100);
+			//Thread.sleep(-100);
+			System.out.println();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
