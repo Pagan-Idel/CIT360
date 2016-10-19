@@ -23,7 +23,7 @@ public class List {
         list.add("Nathan");
         list.add("Noble");
 
-        //the order is preserved
+        //the order is preserved  
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }

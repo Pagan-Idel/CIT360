@@ -10,12 +10,13 @@ import java.util.Random;
 public class SlotMachine implements Runnable {
 
     public SlotMachine() {
+
     }
 
     public String calc() {
         Random num1 = new Random();
         String symbol;
-        int num2 = num1.nextInt(5 - 0 + 1) + 0;
+        int num2 = num1.nextInt(5 - 1 + 1) + 1;
         switch (num2) {
             case 1:
                 symbol = "@ ";
@@ -38,30 +39,36 @@ public class SlotMachine implements Runnable {
         return symbol;
     }
 
+    @Override
     public void run() {
-        
-        try{
-//        String result = calc();
-//        System.out.print(result);
-//        if (result == result){
-//            System.out.print("Winner!");
-//        }else{
-//            System.out.print("Sorry try again");
-//        }
-         System.out.println("Hello!");
-        Thread.sleep(99999);
-        }catch (Exception e){
+
+        try {
+
+            String result = calc();
+            System.out.print(result);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws InterruptedException {
+
         Thread one = new Thread(new SlotMachine());
         Thread two = new Thread(new SlotMachine());
         Thread three = new Thread(new SlotMachine());
 
         one.start();
+
         two.start();
+
         three.start();
+        
+        //happy path for executator 
+        
+
+        
+      
+
     }
 }
