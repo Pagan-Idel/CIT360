@@ -14,56 +14,51 @@ import java.util.Scanner;
  */
 public class MarbleJarView {
 
-    private static int value;
-
     public void MarbleJarView() {
 
     }
 
     public static void main(String[] args) {
-          int option = 0;
+        int option = 0;
         Scanner input = new Scanner(System.in);
 
         MarbleJarView theView = new MarbleJarView();
         MarbleJarController theController = new MarbleJarController();
 
-        while (option != 5) {
-            System.out.print("What would you like to do with the jar?\n1) Add marble.\n2) Take away marble\n3) Dump marbles away\n4) How many marbles are in the jar?\n5) Exit\nEnter Number: ");
+        while (option != 3) {
+            System.out.print("Please describe your marble, show jar or quit program.\n1) Describe marble.\n2) Show Jar\n3) Quit\nEnter Number: ");
             option = input.nextInt();
 
             if (option == 1) {
 
-                System.out.println("How many marbles would you like to add to the jar? ");
-                theController.addToJar(input.nextInt());
+                System.out.println("What is the size of the of the marble? ");
+                int size = input.nextInt();
+                input.nextLine();
+                System.out.println("What is the color of the of the marble? ");
+                String color = input.nextLine();
+
+                System.out.println("What is the name of the of the marble? ");
+                String name = input.nextLine();
+                theController.addToJar(size, name, color);
 
             } else if (option == 2) {
-                if (theController.theModel.getMarbles() == 0) {
-                    System.out.println("You have 0 marbels in the jar, so there is nothing else to take away.");
+                
+                theController.getAndDisplayJar();
 
-                } else {
-                    System.out.println("How many marbles would you like to remove from the jar? ");
-                    theController.takeAway(input.nextInt());
-                }
             } else if (option == 3) {
-                theController.dumpJar();
-                System.out.println("You have dropped the jar! The jar now has 0 marbles." );
-
-            } else if (option == 4) {
-                System.out.println("You have " + theController.theModel.getMarbles() + " marbles in the jar.");
-
-            } else {
                 break;
             }
 
         }
+
     }
 
-    public static void listView() {
-      
+    public void displayJar(ArrayList<Marble> theMarbles) {
+        System.out.println("This is your jar: \n");
+        for (int i = 0; i < theMarbles.size(); i++) {
+            System.out.println(theMarbles.get(i));
+        }
     }
-
-    void displayList(ArrayList studentList) {
-        System.out.print(studentList);
-    }
-
 }
+
+

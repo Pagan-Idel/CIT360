@@ -5,6 +5,8 @@
  */
 package sandbox;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -12,22 +14,31 @@ package sandbox;
  */
 public class MarbleJarController {
   
-    MarbleJarView theView;
-    MarbleJarModel theModel = new MarbleJarModel();
+//    MarbleJarView theView;
    
-    public void addToJar(int marble){
-       theModel.setMarbles(marble + theModel.getMarbles());  
-    }
+    JarModel theModel = new JarModel();
     
-    public void takeAway(int marble){
-        theModel.setMarbles((theModel.getMarbles()) - marble);
+    MarbleJarView theView = new MarbleJarView();
+   
+    public void addToJar(int marbleSize, String marbleName, String marbleColor){
+       Marble theMarble = new Marble(marbleSize, marbleName, marbleColor);
+       theModel.addMarble(theMarble);
+
+//        theMarble.setMarbleColor(marbleColor);
+//        theMarble.setMarbleName(marbleName);
+//        theMarble.setMarbleSize(marbleSize);
     }
-    
-    public void dumpJar(){
-        theModel.setMarbles(0);
-    }
-    
+ 
   
+
+    void getAndDisplayJar() {
+       
+        ArrayList<Marble> thJar = theModel.getAllMarbles();
+        theView.displayJar(thJar);
+       
+    }
+   
+  }
     
     
     
@@ -46,4 +57,4 @@ public class MarbleJarController {
 //        studentList = theModel.getAllNames();
 //        theView.displayList(studentList);
 //    }
-}
+

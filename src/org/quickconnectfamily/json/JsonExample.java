@@ -45,9 +45,10 @@ public class JsonExample {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    
         //NASTY PATH -- parsing a null string
         try {
-            String name = "{\"Student\":\"Idel Pagan\"}";
+            String name = null;
             HashMap jsonList = (HashMap) JSONUtilities.parse(name);
             System.out.println(jsonList);
 
@@ -72,6 +73,26 @@ public class JsonExample {
             e.printStackTrace();
         }
 
+         try {
+            String name = "{\"Student\":\"Idel Pagan\"}";
+            String path = "C:\\Users\\Idel\\Desktop\\College\\Fifth\\Fall\\CIT 360\\readOnlyFile.txt";
+//            File studentFile = new File(path);
+
+            FileInputStream fileIn = new FileInputStream(path);
+            FileOutputStream fileOut = new FileOutputStream(path);
+
+            JSONOutputStream jsonStream = new JSONOutputStream(fileOut);
+            jsonStream.writeObject(name);
+            jsonStream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        
+        
+        
         //NASTY PATH - pasing a null string through the jason object writer. 
         try {
             String name = "";
@@ -89,6 +110,9 @@ public class JsonExample {
             e.printStackTrace();
         }
         
+        
+        //nasty paths to add for reading a file: call read object with no read permission, read object for a image file (liek png). Call read multiple times to the same file (read twice).
+        //nasty paths - writing to a file: no write permission to the directory's file. (file doesnt exist and no writing permission)
         
         //Happy Path - stringify an object
         try {
@@ -113,10 +137,22 @@ public class JsonExample {
             e.printStackTrace();
         }
         
-        //NASTY PATH - Stringify a null string
+        //NASTY PATH - Stringify an empty string
         try {
 
            String theMarble = "";
+            String marble = JSONUtilities.stringify(theMarble);
+            System.out.println(marble);
+
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+         //NASTY PATH - Stringify null string
+        try {
+
+           String theMarble = null;
             String marble = JSONUtilities.stringify(theMarble);
             System.out.println(marble);
 

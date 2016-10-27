@@ -5,26 +5,79 @@
  */
 package sandbox;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Idel
  */
-public class MarbleJarModel {
+public class Marble implements Serializable{
 
-    int marbles = 0;
+    private int marbleSize;
+    private String marbleName;
+    private String marbleColor;
+    
 
-    public MarbleJarModel() {
-
+    public Marble(int aMarbleSize, String aMarbleName, String aMarbleColor) {
+        
+       this.marbleSize = aMarbleSize;
+       this.marbleName = aMarbleName;
+       this.marbleColor = aMarbleColor;
     }
 
-    public int getMarbles() {
-        return marbles;
+    public int getMarbleSize() {
+        return marbleSize;
     }
 
-    public void setMarbles(int marbles) {
-        this.marbles = marbles;
+
+    public String getMarbleName() {
+        return marbleName;
     }
+
+    public String getMarbleColor() {
+        return marbleColor;
+    }
+
+    public void setMarbleSize(int marbleSize) {
+        this.marbleSize = marbleSize;
+    }
+
+    public void setMarbleName(String marbleName) {
+        this.marbleName = marbleName;
+    }
+
+    public void setMarbleColor(String marbleColor) {
+        this.marbleColor = marbleColor;
+    }
+
+    @Override
+    public String toString() {
+        return "Marble{" + "marbleSize=" + marbleSize + ", marbleName=" + marbleName + ", marbleColor=" + marbleColor + '}';
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    private ArrayList list = new ArrayList();
 //    private String value;
@@ -69,4 +122,3 @@ public class MarbleJarModel {
 //        
 //        return list;
 //    }
-}
