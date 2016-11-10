@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.HashMap;
-import sandbox.Marble;
+//import sandbox.Marble;
 
 /**
  *
@@ -19,7 +19,7 @@ public class JsonExample {
 
     public static void main(String[] args) {
         try {
-            String name = "{\"Student\":\"Idel Pagan\"}";
+            String name = "{\"Student\":\"Idel Pagan\",\"Age\":\"22\"}";
             HashMap jsonList = (HashMap) JSONUtilities.parse(name);
             System.out.println(jsonList);
 
@@ -45,7 +45,7 @@ public class JsonExample {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
+
         //NASTY PATH -- parsing a null string
         try {
             String name = null;
@@ -58,11 +58,11 @@ public class JsonExample {
 
         //HAPPY Path - Reading from and to a file.
         try {
-            String name = "{\"Student\":\"Idel Pagan\"}";
+            String name = "{\"Student\":\"Idel Pag000000\"}";
             String path = "C:\\Users\\Idel\\Desktop\\College\\Fifth\\Fall\\CIT 360\\students.txt";
 //            File studentFile = new File(path);
 
-            FileInputStream fileIn = new FileInputStream(path);
+            
             FileOutputStream fileOut = new FileOutputStream(path);
 
             JSONOutputStream jsonStream = new JSONOutputStream(fileOut);
@@ -73,7 +73,7 @@ public class JsonExample {
             e.printStackTrace();
         }
 
-         try {
+        try {
             String name = "{\"Student\":\"Idel Pagan\"}";
             String path = "C:\\Users\\Idel\\Desktop\\College\\Fifth\\Fall\\CIT 360\\readOnlyFile.txt";
 //            File studentFile = new File(path);
@@ -88,11 +88,7 @@ public class JsonExample {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
-        
-        
-        
+
         //NASTY PATH - pasing a null string through the jason object writer. 
         try {
             String name = "";
@@ -109,19 +105,16 @@ public class JsonExample {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
+
         //nasty paths to add for reading a file: call read object with no read permission, read object for a image file (liek png). Call read multiple times to the same file (read twice).
         //nasty paths - writing to a file: no write permission to the directory's file. (file doesnt exist and no writing permission)
-        
         //Happy Path - stringify an object
         try {
 
-            Marble theMarble = new Marble(1, "Idel", "Blue");
-            String marble = JSONUtilities.stringify(theMarble);
-            System.out.println(marble);
+//            Marble theMarble = new Marble(1, "Idel", "Blue");
+//            String marble = JSONUtilities.stringify(theMarble);
+//            System.out.println(marble);
 
-           
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,31 +125,28 @@ public class JsonExample {
             String marble = JSONUtilities.stringify(theMarble);
             System.out.println(marble);
 
-          
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         //NASTY PATH - Stringify an empty string
         try {
 
-           String theMarble = "";
+            String theMarble = "";
             String marble = JSONUtilities.stringify(theMarble);
             System.out.println(marble);
 
-           
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-         //NASTY PATH - Stringify null string
+
+        //NASTY PATH - Stringify null string
         try {
 
-           String theMarble = null;
+            String theMarble = null;
             String marble = JSONUtilities.stringify(theMarble);
             System.out.println(marble);
 
-           
         } catch (Exception e) {
             e.printStackTrace();
         }
